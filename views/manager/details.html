@@ -1,0 +1,97 @@
+{{extend 'layout.html'}}
+
+<H1>{{ =title }}</H1>
+
+{{ for data in patient: }}
+
+<fieldset>
+    <legend><H2> {{=data.name}} </H2></legend>
+<p></p>
+<div><b>Data Nascimento:</b> {{=data.born.strftime("%d/%m/%Y")}}</div>
+<div><b>Telefone:</b> {{=data.phone}}</div>
+<div><b>Celular:</b> {{=data.mobile}}</div>
+<div><b>Telefone(outro):</b> {{=data.other_phone}}</div>
+<div><b>E-mail:</b> {{=data.email}}</div>
+<div><b>Tipo documento:</b> {{=data.doc_type.doc_type}}</div>
+<div><b>Número documento:</b> {{=data.doc_id}}</div>
+<div><b>Plano de Saúde:</b> {{=data.health_care}}</div>
+<div><b>Médico:</b> {{=data.doctor}}</div>
+<div><b>CRM Médico:</b> {{=data.doctor_doc}}</div>
+
+    {{ if data.name_responsable != "": }}
+
+        <p><b>Responsável pelo paciente</b></p>
+    
+        <div><b>Nome:</b>{{=data.name_responsable}}</b></div>
+        <div><b>Data Nascimento:</b> {{=data.born_responsable.strftime("%d/%m/%Y")}}</div>
+        <div><b>Telefone:</b> {{=data.phone_responsable}}</div>
+        <div><b>Celular:</b> {{=data.mobile_responsable}}</div>
+        <div><b>E-mail:</b> {{=data.email_responsable}}</div>
+        <div><b>Tipo documento:</b> {{=data.doc_type_responsable.doc_type}}</div>
+        <div><b>Número documento:</b> {{=data.doc_id_responsable}}</div>
+
+    {{ pass }}
+<p></p>
+<div><b>NOTAS:</b> {{=data.notes}}</div>
+<p></p>
+<a href="../update_person/{{=data.id}}">[alterar]</a></legend>
+{{pass}}
+</fieldset>
+
+<p><H2>Tratamentos </H2></p>
+<p><a href="../new_treatment/{{=data.id}}">[adicionar tratamento]</a></p>
+
+{{ for treatment in treatments: }}
+    <fieldset>
+        <legend><H3>{{ =treatment.treatment }}</H3><a href="../update_treatment/{{=treatment.id}}">[alterar]</a></legend>
+        <div><b>Diagnóstico: </b>{{ =treatment.diagnosis }}</div>
+        <div><b>Data de início: </b>{{ =treatment.start_date.strftime("%d/%m/%Y") }}</div>
+        <div><b>Patologias: </b>{{ =treatment.pathologies }}</div>
+        <div><b>Medicamentos: </b>{{ =treatment.medications }}</div>
+        <p></p>
+        <fieldset>
+            <legend>Atendimentos:</legend>
+            <p><a href='../new_attendance/{{=data.id}}/{{=treatment.id}}'>[adicionar atendimento]</a></p>
+
+            <table border="1" style="background-color:#FFFFFF;border-collapse:collapse;border:1px solid #FFCC00;color:#000000;width:100%" 
+            cellpadding="3" cellspacing="10">
+                <tr>
+                    <td><b>Data</b></td>
+                    <td><b>PA inicial</b></td>
+                    <td><b>SPO2 inicial</b></td>
+                    <td><b>BPM inicial</b></td>
+                    <td><b>PA final</b></td>
+                    <td><b>SPO2 final</b></td>
+                    <td><b>BPM final</b></td>
+                    <td><b>Anotações</b></td>
+		    <td><b>Conduta</b></td>
+                    <td><b>Fisioterapeuta</b></td>
+                </tr>
+
+                {{ for attendment in attendments: }}
+                <tr>
+                    {{ if attendment.treatment == treatment.id: }}
+                    <td width=70><a href="{{ =URL('manager','update_attendance')}}/{{ =attendment.id }}">
+                            {{ =attendment.care_date.strftime("%d/%m/%Y") }}</a></td>
+                    <td>{{ =attendment.pa_start }}</td>
+                    <td>{{ =attendment.spo2_start }}</td>
+                    <td>{{ =attendment.bpm_start }}</td>
+                    <td>{{ =attendment.pa_end }}</td>
+                    <td>{{ =attendment.spo_end }}</td>
+                    <td>{{ =attendment.bpm_end }}</td>
+                    <td>{{ =attendment.notes }}</td>
+		    <td>{{ =attendment.conduct }}</td>
+                    <td>{{ =attendment.patient_owner.name }}</td> 
+                </tr>
+                    {{ pass }}
+                {{ pass }}
+
+            </table>
+        </fieldset>
+    </fieldset>
+    <p></p>
+{{ pass }}
+
+<p></p>
+
+

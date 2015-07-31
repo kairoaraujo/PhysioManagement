@@ -1,0 +1,128 @@
+{{extend 'layout.html'}}
+
+<H3>Cadastro</H3>
+<form class="form-horizontal">
+<fieldset>
+
+<!-- Form Name -->
+<legend></legend>
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="name">Nome:</label>
+  <div class="controls">
+    <input id="name" name="name" type="text" placeholder="Nome completo" class="input-xlarge" size="100" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="address">Endereço:</label>
+  <div class="controls">
+    <input id="address" name="address" type="text" placeholder="Rua ..." class="input-xlarge" size="100" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="born">Data de nascimento:</label>
+  <div class="controls">
+    <input id="born" name="born" type="text" placeholder="DD/MM/AAAA" class="input-small" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="phone">Telefone:</label>
+  <div class="controls">
+    <input id="phone" name="phone" type="text" placeholder="3232110000" class="input-xlarge" required="">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="mobile">Celular:</label>
+  <div class="controls">
+    <input id="mobile" name="mobile" type="text" placeholder="3287654332" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="other_number">Telefone (adicional):</label>
+  <div class="controls">
+    <input id="other_number" name="other_number" type="text" placeholder="3298765432" class="input-xlarge">
+    
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="email">Email:</label>
+  <div class="controls">
+    <input id="email" name="email" type="text" placeholder="email@endereco.com" class="input-xlarge" size="40" required="">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="doc_type">Tipo de Documento:</label>
+  <div class="controls">
+    <select id="doc_type" name="doc_type" class="input-xlarge">
+      <option>ID/RG</option>
+      <option>CPF</option>
+      <option>CNH</option>
+      <option>CNT</option>
+      <option>PASSAPORT</option>
+    </select>
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="control-group">
+  <label class="control-label" for="doc_number">Numero do documento:</label>
+  <div class="controls">
+    <input id="doc_number" name="doc_number" type="text" placeholder="8324123405" class="input-xlarge" required="">
+    
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="control-group">
+  <label class="control-label" for="type_person">Tipo de Cadastro</label>
+  <div class="controls">
+    <select id="type_person" name="type_person" class="input-xlarge">
+      <option>Paciente</option>
+      <option>Fisioterapeuta</option>
+      <option>Responsável/Acompanhante</option>
+      <option>Contato</option>
+    </select>
+  </div>
+</div>
+
+<!-- Textarea -->
+<div class="control-group">
+  <label class="control-label" for="notes">Observações:</label>
+  <div class="controls">                     
+    <textarea id="notes" name="notes" rows="5" cols="80">** Não coloque aqui informações sobre tratamento ** 
+Apenas observações gerais.</textarea>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="control-group">
+  <label class="control-label" for="add"></label>
+  <div class="controls">
+    <button id="add" name="add" class="btn btn-primary">Gravar</button>
+  </div>
+</div>
+
+</fieldset>
+</form>
+<p></p>
+

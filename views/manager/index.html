@@ -1,0 +1,13 @@
+{{extend 'layout.html'}}
+
+<H3>{{ =title }}</H3>
+<p></p>
+<b> Cadastro </b>
+<ul>
+    <li><a href="{{ =URL('manager','new_person') }}">Cadastrar novo</a></li>
+</ul>
+<b> Listagens </b>
+<ul>
+    <li><a href="{{ =URL('manager','list_patients') }}">Listar todos os pacientes</a></li>
+    <li><a href="{{ =URL('manager','list_all') }}">Listar todas as pessoas</a></li>
+</ul>

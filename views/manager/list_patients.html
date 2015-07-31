@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+
+<H3>{{ =title }}</H3>
+    <ul>
+    {{for person in all_patients:}}
+    <li><a href="details/{{=person.id}}">{{=person.name}}</a></li>
+        {{pass}}
+    </ul>
+

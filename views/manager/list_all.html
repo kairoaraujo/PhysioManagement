@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+
+<H3>{{ =title }}</H3>
+    <ul>
+    {{for person in all_people:}}
+    <li>{{=person.name}} <a href="update_person/{{=person.id}}">[atualizar]</a></li>
+        {{pass}}
+    </ul>
+
